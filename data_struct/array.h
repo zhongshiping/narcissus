@@ -6,7 +6,11 @@ class Array {
 public:
   explicit  Array() {};
   explicit  Array(const Array& other) {};
-  ~Array() {};
+  ~Array()
+  {
+    delete array_;
+    array_ = nullptr;
+  };
 
   void fill(const _T& value) { _fill(array_, array_ + size_, value); }
 

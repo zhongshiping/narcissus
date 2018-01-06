@@ -9,10 +9,12 @@ public:
     first_ = other.first_;
     second_ = other.second_;
   }
+
   explicit Pair(Pair&& other) noexcept {
     first_ = other.first_;
     second_ = other.second_;
   }
+
   explicit Pair(const _T1 t1, const _T2 t2) {
     first_ = t1;
     second_ = t2;

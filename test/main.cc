@@ -5,6 +5,9 @@
 #include "pair.h"
 #include "map.h"
 #include <map>
+#include "queue.h"
+#include <queue>
+#include <stack>
 
 #define PRINT(SIZE, T) for(size_t i = 0; i < SIZE; ++i) { std::cout<< T[i] << " ";} std::cout << std::endl;
 
@@ -51,19 +54,21 @@ int main()
 	std::cout << std::endl << aarry[0] << aarry.front() << aarry.back();
 
 	//deque
-	mylib::Deque<int> deque;
-	deque.push_back(1);
-	deque.push_back(1);
-	deque.push_back(1);
-	deque.push_back(1);
-	deque.push_back(1);
-	deque.push_back(1);
-	PRINT(deque.size(), deque);
-	deque.pop_back();
-	deque.pop_back();
-	deque.pop_back();
-	deque.pop_back();
-	PRINT(deque.size(), deque);
+	mylib::Queue<int> queue;
+	queue.push_back(1);
+	queue.push_back(2);
+	queue.push_back(3);
+	queue.push_back(4);
+	queue.push_back(5);
+	queue.push_back(6);
+  int a = queue.front();
+  int b = queue.back();
+	queue.pop_back();
+	queue.pop_back();
+	queue.pop_back();
+	queue.pop_back();
+  a = queue.front();
+  b = queue.back();
 
 	mylib::Pair<int, std::string> p(1, "4");
 	mylib::Pair<int, std::string> p1(p);

@@ -28,6 +28,7 @@ public:
   Map() {}
   Map(const Map& other) {}
   Map(Map&& other) noexcept {}
+  ~Map() { clear(); }
 
   RBTree<_T1, _T2>* insert(const _T1 &key, const _T2 &value) {
     RBTree<_T1, _T2>* y = nullptr;
