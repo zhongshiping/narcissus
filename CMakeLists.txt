@@ -1,6 +1,13 @@
-cmake_minimum_required(VERSION 3.5.0)
-PROJECT(DataStruct CXX)
+cmake_minimum_required(VERSION 3.10)
+PROJECT(Narcissus)
 
+if (MSVC_VERSION GREATER_EQUAL "1900")
+    include(CheckCXXCompilerFlag)
+    CHECK_CXX_COMPILER_FLAG("/std:c++latest" _cpp_latest_flag_supported)
+    if (_cpp_latest_flag_supported)
+        add_compile_options("/std:c++latest")
+    endif()
+endif()
 
 # Parallel building
 if(MSVC)
@@ -24,7 +31,6 @@ if(OPENMP_FOUND)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}")
 endif()
 
-file(GLOB HDR *.h)
-file(GLOB SRC *.cc)
-
-add_executable(DataStruct ${HDR} ${SRC})
+include_directories(data_struct)
+add_subdirectory(data_struct)
+add_subdirectory(test)
