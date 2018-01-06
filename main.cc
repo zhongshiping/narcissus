@@ -2,6 +2,9 @@
 #include "array.h"
 #include <iostream>
 #include "deque.h"
+#include "pair.h"
+#include "map.h"
+#include <map>
 
 #define PRINT(SIZE, T) for(size_t i = 0; i < SIZE; ++i) { std::cout<< T[i] << " ";} std::cout << std::endl;
 
@@ -61,5 +64,29 @@ int main()
 	deque.pop_back();
 	deque.pop_back();
 	PRINT(deque.size(), deque);
+
+	mylib::Pair<int, std::string> p(1, "4");
+	mylib::Pair<int, std::string> p1(p);
+	int d = p1.first_;
+	std::string c = p1.second_;
+	mylib::Pair<int, std::string> p2(3, "6");
+	p2.swap(p);
+
+	std::map<int, double> mk;
+	mk[3] = 3.3;
+
+	mylib::Map<int, std::string> mmap;
+	mmap.insert(1, "r");
+	mmap.insert(2, "rr");
+	mmap.insert(4, "rrr");
+	mmap.insert(5, "rrr");
+	mmap.insert(7, "rrr");
+	mmap.insert(8, "rrr");
+	mmap.insert(11, "rrr");
+	mmap.insert(14, "rrr");
+	mmap.insert(15, "rrr");
+
+	std::string rr = mmap[5];
+	mmap[3] = "this";
 	return 0;
 }
