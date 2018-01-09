@@ -1,7 +1,6 @@
-# 1.实现各种数据类型
-# 2.实现各种常用算法
-# 3.矩阵计算
-# 4.常见深度学习算法
+# 1.implement data types
+# 2.implement Common algorithms
+# 3.Matrix calculation
+# 4.deep learning algorithms
 
-
-#本项目旨在实现c++模板的高级功能
+# this project in order to stuty c plus plus templete's Advanced function
