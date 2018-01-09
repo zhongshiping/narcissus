@@ -21,7 +21,7 @@ public:
     list_struct_ = other.list_struct_;
     count_ = other.count_;
   }
-  ~List() { clear(); };
+  ~List() {};
 
   void append(const T& value) {
     DoubleLinkedList<T>* list_struct = new DoubleLinkedList<T>;
@@ -30,6 +30,7 @@ public:
 
     if (list_struct_ == nullptr) {
       list_struct_ = list_struct;
+      list_struct_->previous_node = nullptr;
     }
     else {
       DoubleLinkedList<T>* temp = list_struct_;
@@ -60,13 +61,13 @@ public:
 
   }
 
-  void clear(){
+  void clear() {
     DoubleLinkedList<T>* list = nullptr;
     while (list_struct_) {
       list = list_struct_->next_node;
       delete list_struct_;
       list_struct_ = nullptr;
-      if (list->previous_node)
+      if (list && list->previous_node)
         list->previous_node = nullptr;
       list_struct_ = list;
     }

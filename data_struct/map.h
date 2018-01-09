@@ -6,8 +6,9 @@ enum class ColorType {
   RED, BLACK
 };
 template<typename _T1, typename _T2>
-struct RBTree {
-  RBTree* parent_node = nullptr;
+class RBTree {
+public:
+  RBTree * parent_node = nullptr;
   RBTree* left_child = nullptr;
   RBTree* right_child = nullptr;
   ColorType color_type = ColorType::RED;
@@ -19,16 +20,16 @@ struct RBTree {
     color_type = color;
     value = v;
   }
-  RBTree() {}
+  RBTree() : parent_node(nullptr), left_child(nullptr), right_child(nullptr), color_type(ColorType::RED) {}
 };
 
 template<typename _T1, typename _T2>
 class Map {
 public:
-  Map() {}
+  Map() : root_(new RBTree<_T1, _T2>()) {}
   Map(const Map& other) {}
   Map(Map&& other) noexcept {}
-  ~Map() { clear(); }
+  ~Map() {}
 
   RBTree<_T1, _T2>* insert(const _T1 &key, const _T2 &value) {
     RBTree<_T1, _T2>* y = nullptr;
@@ -327,6 +328,6 @@ private:
     }
   }
 
-  RBTree<_T1, _T2>* root_ = nullptr;
+  RBTree<_T1, _T2>* root_;
 };
 }
